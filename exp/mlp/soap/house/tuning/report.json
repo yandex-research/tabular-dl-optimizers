@@ -1,0 +1,67 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/house",
+                "num_policy": "noisy-quantile",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 592,
+                    "dropout": 0.3404632430004516
+                }
+            },
+            "optimizer": {
+                "type": "SOAP",
+                "lr": 0.0009368448111950738,
+                "weight_decay": 0.08981218363425274
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 361713,
+            "prediction_type": "labels",
+            "epoch_size": 57,
+            "best_step": 4902,
+            "metrics": {
+                "train": {
+                    "rmse": 18426.66589483838,
+                    "mae": 11199.9169921875,
+                    "r2": 0.8749629259109497,
+                    "score": -18426.66589483838
+                },
+                "val": {
+                    "rmse": 28164.86321642624,
+                    "mae": 15079.154296875,
+                    "r2": 0.7338037490844727,
+                    "score": -28164.86321642624
+                },
+                "test": {
+                    "rmse": 30419.53793205939,
+                    "mae": 15102.943359375,
+                    "r2": 0.679466724395752,
+                    "score": -30419.53793205939
+                }
+            },
+            "time": 25.76155210006982,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 96,
+                "time": 4466.62529529538
+            }
+        }
+    },
+    "time": 4526.928751510568,
+    "n_completed_trials": 100
+}

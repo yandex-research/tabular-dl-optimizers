@@ -1,0 +1,68 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/cooking-time",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 144,
+                    "dropout": 0.42354538221556515
+                }
+            },
+            "optimizer": {
+                "type": "SOAP",
+                "lr": 5.691607844679762e-05,
+                "weight_decay": 0.19650158838128953
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 29665,
+            "prediction_type": "labels",
+            "epoch_size": 222,
+            "best_step": 45510,
+            "metrics": {
+                "train": {
+                    "rmse": 0.44788431080310365,
+                    "mae": 0.34904199838638306,
+                    "r2": 0.5392213463783264,
+                    "score": -0.44788431080310365
+                },
+                "val": {
+                    "rmse": 0.4652030902276103,
+                    "mae": 0.36220863461494446,
+                    "r2": 0.5036923885345459,
+                    "score": -0.4652030902276103
+                },
+                "test": {
+                    "rmse": 0.48262807169195854,
+                    "mae": 0.37735962867736816,
+                    "r2": 0.48066723346710205,
+                    "score": -0.48262807169195854
+                }
+            },
+            "time": 166.08290237933397,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 95,
+                "time": 11773.395916326903
+            }
+        }
+    },
+    "time": 12293.965063495561,
+    "n_completed_trials": 100
+}

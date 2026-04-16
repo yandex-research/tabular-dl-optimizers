@@ -1,0 +1,69 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/sberbank-housing",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 992,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "AdamWScheduleFree",
+                "lr": 0.013695210480695694,
+                "weight_decay": 2.2905161907766427
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 1542561,
+            "prediction_type": "labels",
+            "epoch_size": 74,
+            "best_step": 1258,
+            "metrics": {
+                "train": {
+                    "rmse": 0.24226946366709384,
+                    "mae": 0.12734073400497437,
+                    "r2": 0.6250173449516296,
+                    "score": -0.24226946366709384
+                },
+                "val": {
+                    "rmse": 0.24255460941511137,
+                    "mae": 0.13459424674510956,
+                    "r2": 0.6070201396942139,
+                    "score": -0.24255460941511137
+                },
+                "test": {
+                    "rmse": 0.2471102429717526,
+                    "mae": 0.15799303352832794,
+                    "r2": 0.582726240158081,
+                    "score": -0.2471102429717526
+                }
+            },
+            "time": 6.6408734121359885,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 69,
+                "time": 405.1120150750503
+            }
+        }
+    },
+    "time": 580.6260251333006,
+    "n_completed_trials": 100
+}

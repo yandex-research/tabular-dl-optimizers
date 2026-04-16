@@ -1,0 +1,28 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/california"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 4
+d_block = 336
+dropout = 0.14226975239247866
+
+[base_config.optimizer]
+type = "RAdam"
+decoupled_weight_decay = true
+lr = 0.00031808016440552353
+weight_decay = 0.9897095672009747

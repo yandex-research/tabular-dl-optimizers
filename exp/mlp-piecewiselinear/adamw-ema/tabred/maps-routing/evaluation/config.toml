@@ -1,0 +1,37 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/maps-routing"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 896
+dropout = 0.1406830263803046
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 32
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 34
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9113042641703035
+lr = 0.0001027902430105821
+weight_decay = 4.280129171687683

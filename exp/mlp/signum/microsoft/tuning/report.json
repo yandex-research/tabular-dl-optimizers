@@ -1,0 +1,68 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "data": {
+                "path": "data/microsoft",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 928,
+                    "dropout": 0.3967097509240104
+                }
+            },
+            "optimizer": {
+                "type": "Signum",
+                "lr": 1.000303813181913e-05,
+                "weight_decay": 1.5022857505327187
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-40GB",
+            "n_parameters": 994817,
+            "prediction_type": "labels",
+            "epoch_size": 707,
+            "best_step": 96859,
+            "metrics": {
+                "train": {
+                    "rmse": 0.7098619898460146,
+                    "mae": 0.5569727420806885,
+                    "r2": 0.2544613480567932,
+                    "score": -0.7098619898460146
+                },
+                "val": {
+                    "rmse": 0.7419139157045378,
+                    "mae": 0.5798004865646362,
+                    "r2": 0.2010522484779358,
+                    "score": -0.7419139157045378
+                },
+                "test": {
+                    "rmse": 0.7462315457105372,
+                    "mae": 0.5811845660209656,
+                    "r2": 0.19695502519607544,
+                    "score": -0.7462315457105372
+                }
+            },
+            "time": 237.01607629656792,
+            "eval_batch_size": 32768,
+            "trial_id": 87,
+            "tuning_time": 10607.674661556259
+        }
+    },
+    "time": 12287.231121411547,
+    "n_completed_trials": 100,
+    "resumed_after_n_trials": [
+        18
+    ]
+}

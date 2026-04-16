@@ -1,0 +1,29 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+share_training_batches = false
+save_checkpoint = false
+
+[base_config.data]
+path = "data/otto"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+arch_type = "tabm-packed"
+k = 16
+n_blocks = 3
+d_block = 704
+dropout = 0.22887974854620893
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.003644715678347657
+weight_decay = 0.0912765442205346

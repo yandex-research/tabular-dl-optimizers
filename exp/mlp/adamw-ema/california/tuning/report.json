@@ -1,0 +1,68 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/california",
+                "num_policy": "noisy-quantile",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 6,
+                    "d_block": 752,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "ema_decay": 0.9381170587303049,
+                "lr": 0.0006906148631007781,
+                "weight_decay": 1.8243079251015282
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 2838801,
+            "prediction_type": "labels",
+            "epoch_size": 52,
+            "best_step": 3952,
+            "metrics": {
+                "train": {
+                    "rmse": 0.3854701761096417,
+                    "mae": 0.26391351222991943,
+                    "r2": 0.8896877765655518,
+                    "score": -0.3854701761096417
+                },
+                "val": {
+                    "rmse": 0.4701638832879845,
+                    "mae": 0.30228084325790405,
+                    "r2": 0.8304630517959595,
+                    "score": -0.4701638832879845
+                },
+                "test": {
+                    "rmse": 0.4721217325131337,
+                    "mae": 0.3068905770778656,
+                    "r2": 0.8290593028068542,
+                    "score": -0.4721217325131337
+                }
+            },
+            "time": 16.76682943664491,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 52,
+                "time": 1081.7974050529301
+            }
+        }
+    },
+    "time": 1723.3429490886629,
+    "n_completed_trials": 100
+}

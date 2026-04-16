@@ -1,0 +1,32 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+share_training_batches = false
+save_checkpoint = false
+
+[base_config.data]
+path = "data/adult"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+arch_type = "tabm"
+k = 16
+n_blocks = 4
+d_block = 288
+dropout = 0.4842952595406483
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0013904760863783796
+weight_decay = 0.001417442662542596

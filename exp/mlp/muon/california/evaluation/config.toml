@@ -1,0 +1,34 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/california"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 5
+d_block = 208
+dropout = 0.2396316883730869
+
+[base_config.optimizer]
+lr = 0.00017015698437181296
+weight_decay = 0.22125190353086846
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+type = "Muon"
+
+[base_config.optimizer.muon]
+lr = 0.0002725225648863207

@@ -1,0 +1,27 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/maps-routing"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 336
+dropout = 0.391669201592366
+
+[base_config.optimizer]
+type = "AdamWScheduleFree"
+lr = 0.0002472764139630116
+weight_decay = 3.2708822855975974

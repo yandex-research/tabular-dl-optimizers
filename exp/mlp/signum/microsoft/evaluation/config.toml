@@ -1,0 +1,27 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/microsoft"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 2
+d_block = 928
+dropout = 0.3967097509240104
+
+[base_config.optimizer]
+type = "Signum"
+lr = 1.000303813181913e-05
+weight_decay = 1.5022857505327187

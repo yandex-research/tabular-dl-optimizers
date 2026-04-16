@@ -1,0 +1,65 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "data": {
+                "path": "data/weather",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 640,
+                    "dropout": 0.10560437058633054
+                }
+            },
+            "optimizer": {
+                "type": "Signum",
+                "lr": 7.704178734082663e-05,
+                "weight_decay": 1.795762996421256
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-40GB",
+            "n_parameters": 479361,
+            "prediction_type": "labels",
+            "epoch_size": 333,
+            "best_step": 15318,
+            "metrics": {
+                "train": {
+                    "rmse": 1.323816964290125,
+                    "mae": 0.9725520014762878,
+                    "r2": 0.8839108347892761,
+                    "score": -1.323816964290125
+                },
+                "val": {
+                    "rmse": 1.5976563246151037,
+                    "mae": 1.171628713607788,
+                    "r2": 0.8392753601074219,
+                    "score": -1.5976563246151037
+                },
+                "test": {
+                    "rmse": 1.5296578206659766,
+                    "mae": 1.118612289428711,
+                    "r2": 0.8422837853431702,
+                    "score": -1.5296578206659766
+                }
+            },
+            "time": 41.915575810009614,
+            "eval_batch_size": 32768,
+            "trial_id": 98,
+            "tuning_time": 3353.8871827931143
+        }
+    },
+    "time": 3406.869682271965,
+    "n_completed_trials": 100
+}

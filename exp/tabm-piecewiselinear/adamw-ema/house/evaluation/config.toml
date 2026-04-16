@@ -1,0 +1,40 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+share_training_batches = false
+
+[base_config.data]
+path = "data/house"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+k = 16
+arch_type = "tabm"
+n_blocks = 3
+d_block = 688
+dropout = 0.1675557347205902
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 32
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 2
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9578033110512413
+lr = 0.00021651588688932044
+weight_decay = 0.00435358724961245

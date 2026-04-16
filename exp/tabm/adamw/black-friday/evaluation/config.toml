@@ -1,0 +1,32 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+share_training_batches = false
+save_checkpoint = false
+
+[base_config.data]
+path = "data/black-friday"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+arch_type = "tabm"
+k = 16
+n_blocks = 2
+d_block = 592
+dropout = 0.11978486302079322
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0007485563728300938
+weight_decay = 0.013526539709788479

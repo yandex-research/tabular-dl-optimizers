@@ -1,0 +1,71 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/microsoft",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 1024,
+                    "dropout": 0.25436165806050853
+                }
+            },
+            "optimizer": {
+                "type": "AdamWScheduleFree",
+                "lr": 0.00034224688280844304,
+                "weight_decay": 0.1787520379467727
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 146433,
+            "prediction_type": "labels",
+            "epoch_size": 707,
+            "best_step": 263004,
+            "metrics": {
+                "train": {
+                    "rmse": 0.706433776136916,
+                    "mae": 0.5522354245185852,
+                    "r2": 0.2616448998451233,
+                    "score": -0.706433776136916
+                },
+                "val": {
+                    "rmse": 0.7426180745013623,
+                    "mae": 0.5800116658210754,
+                    "r2": 0.19953495264053345,
+                    "score": -0.7426180745013623
+                },
+                "test": {
+                    "rmse": 0.7465971202335977,
+                    "mae": 0.5809981226921082,
+                    "r2": 0.1961679458618164,
+                    "score": -0.7465971202335977
+                }
+            },
+            "time": 499.0866948766634,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 70,
+                "time": 6194.712659459561
+            }
+        }
+    },
+    "time": 16557.81411186699,
+    "n_completed_trials": 100,
+    "resumed_after_n_trials": [
+        81
+    ]
+}

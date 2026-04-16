@@ -1,0 +1,27 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/weather"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 3
+d_block = 848
+dropout = 0.2280562134230138
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 4.64192928781017e-05
+weight_decay = 1.7388743273817107

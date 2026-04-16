@@ -1,0 +1,27 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/maps-routing"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 608
+dropout = 0.4334203702162407
+
+[base_config.optimizer]
+type = "AdaBelief"
+lr = 3.311889669591763e-05
+weight_decay = 4.774134385080971

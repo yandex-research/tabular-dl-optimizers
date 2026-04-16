@@ -1,0 +1,30 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+share_training_batches = false
+save_checkpoint = false
+
+[base_config.data]
+path = "data/higgs-small"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+arch_type = "tabm-packed"
+k = 16
+n_blocks = 3
+d_block = 80
+dropout = 0.15274727782430964
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0010897707769463836
+weight_decay = 0.012097228757517101

@@ -1,0 +1,68 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/microsoft",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 800,
+                    "dropout": 0.3629728910830983
+                }
+            },
+            "optimizer": {
+                "type": "AdaBelief",
+                "lr": 4.4695950440887835e-05,
+                "weight_decay": 0.46104086386317633
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 755201,
+            "prediction_type": "labels",
+            "epoch_size": 707,
+            "best_step": 96859,
+            "metrics": {
+                "train": {
+                    "rmse": 0.708473673175894,
+                    "mae": 0.5534756779670715,
+                    "r2": 0.25737464427948,
+                    "score": -0.708473673175894
+                },
+                "val": {
+                    "rmse": 0.7420058981925789,
+                    "mae": 0.5773895978927612,
+                    "r2": 0.2008541226387024,
+                    "score": -0.7420058981925789
+                },
+                "test": {
+                    "rmse": 0.7462938849166808,
+                    "mae": 0.5784624814987183,
+                    "r2": 0.19682085514068604,
+                    "score": -0.7462938849166808
+                }
+            },
+            "time": 326.92732241377234,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 94,
+                "time": 15469.810415769927
+            }
+        }
+    },
+    "time": 16826.39676714968,
+    "n_completed_trials": 100
+}

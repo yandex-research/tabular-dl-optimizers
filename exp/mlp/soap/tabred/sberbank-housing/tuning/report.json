@@ -1,0 +1,69 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/sberbank-housing",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 3,
+                    "d_block": 384,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "SOAP",
+                "lr": 0.0006908178633248433,
+                "weight_decay": 0.07667802592286119
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 511489,
+            "prediction_type": "labels",
+            "epoch_size": 74,
+            "best_step": 296,
+            "metrics": {
+                "train": {
+                    "rmse": 0.23040545127716758,
+                    "mae": 0.1174224317073822,
+                    "r2": 0.6608441472053528,
+                    "score": -0.23040545127716758
+                },
+                "val": {
+                    "rmse": 0.2460628747493922,
+                    "mae": 0.1420574188232422,
+                    "r2": 0.5955699682235718,
+                    "score": -0.2460628747493922
+                },
+                "test": {
+                    "rmse": 0.25620800755845535,
+                    "mae": 0.1676257997751236,
+                    "r2": 0.5514354109764099,
+                    "score": -0.25620800755845535
+                }
+            },
+            "time": 9.828584106639028,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 96,
+                "time": 1556.6257393071428
+            }
+        }
+    },
+    "time": 1585.69389595557,
+    "n_completed_trials": 100
+}

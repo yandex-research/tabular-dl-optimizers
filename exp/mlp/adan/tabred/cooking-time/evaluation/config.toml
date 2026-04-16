@@ -1,0 +1,28 @@
+function = "bin.ffn.main"
+n_seeds = 10
+n_workers = 2
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/cooking-time"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 720
+dropout = 0.25165638247474453
+
+[base_config.optimizer]
+type = "Adan"
+lr = 0.00013288580052136885
+weight_decay = 0.7856375536644238

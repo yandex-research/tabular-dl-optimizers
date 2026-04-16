@@ -1,0 +1,29 @@
+function = "bin.ffn.main"
+n_seeds = 10
+n_workers = 2
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/house"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 3
+d_block = 864
+dropout = 0.21947898487006479
+
+[base_config.optimizer]
+type = "SGD"
+momentum = 0.9
+dampening = 0.9
+lr = 0.0420244377258234
+weight_decay = 0.0062105786227809896

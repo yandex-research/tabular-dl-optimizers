@@ -1,0 +1,70 @@
+{
+    "function": "bin.tune.main",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "data": {
+                "path": "data/cooking-time",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 608,
+                    "dropout": 0.43977863966076036
+                }
+            },
+            "optimizer": {
+                "type": "Lion",
+                "lr": 8.253068047345468e-05,
+                "weight_decay": 0.04027784374464663
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 125249,
+            "prediction_type": "labels",
+            "epoch_size": 222,
+            "best_step": 3330,
+            "metrics": {
+                "train": {
+                    "rmse": 0.45015214891032024,
+                    "mae": 0.3507958650588989,
+                    "r2": 0.5345432758331299,
+                    "score": -0.45015214891032024
+                },
+                "val": {
+                    "rmse": 0.46525544279810505,
+                    "mae": 0.3622599244117737,
+                    "r2": 0.5035806894302368,
+                    "score": -0.46525544279810505
+                },
+                "test": {
+                    "rmse": 0.4825475891886672,
+                    "mae": 0.3772544860839844,
+                    "r2": 0.48084044456481934,
+                    "score": -0.4825475891886672
+                }
+            },
+            "time": 11.744282939005643,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 61,
+                "time": 552.9169975668192,
+                "worker_id": 1
+            }
+        }
+    },
+    "time": 914.3947726348415,
+    "n_completed_trials": 100,
+    "worker_id": 1
+}

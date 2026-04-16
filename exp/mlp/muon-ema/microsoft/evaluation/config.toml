@@ -1,0 +1,37 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/microsoft"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 4
+d_block = 496
+dropout = 0.21828761912414876
+
+[base_config.optimizer]
+type = "Muon"
+ema_decay = 0.9387152237872656
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+lr = 7.911281163561733e-05
+weight_decay = 0.3505709644762631
+
+[base_config.optimizer.muon]
+lr = 0.00014164854972439559

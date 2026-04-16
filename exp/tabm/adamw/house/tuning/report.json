@@ -1,0 +1,68 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "share_training_batches": false,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/house",
+                "num_policy": "noisy-quantile",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "arch_type": "tabm",
+                    "k": 16,
+                    "n_blocks": 5,
+                    "d_block": 864,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "lr": 0.0036103847293236387,
+                "weight_decay": 0.04322500663292513
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-40GB",
+            "n_parameters": 3207440,
+            "prediction_type": "labels",
+            "epoch_size": 57,
+            "best_step": 3420,
+            "metrics": {
+                "train": {
+                    "rmse": 6452.860450993807,
+                    "mae": 4580.3037109375,
+                    "r2": 0.9846661686897278,
+                    "score": -6452.860450993807
+                },
+                "val": {
+                    "rmse": 26900.556425471947,
+                    "mae": 13369.228515625,
+                    "r2": 0.7571662068367004,
+                    "score": -26900.556425471947
+                },
+                "test": {
+                    "rmse": 30231.254820136062,
+                    "mae": 14139.9228515625,
+                    "r2": 0.6834223866462708,
+                    "score": -30231.254820136062
+                }
+            },
+            "time": 31.944410583935678,
+            "eval_batch_size": 32768,
+            "trial_id": 42,
+            "tuning_time": 891.0961680859327
+        }
+    },
+    "time": 2010.2729672854766,
+    "n_completed_trials": 100
+}

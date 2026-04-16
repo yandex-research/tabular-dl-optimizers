@@ -1,0 +1,38 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+share_training_batches = false
+save_checkpoint = false
+
+[base_config.data]
+path = "data/otto"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+arch_type = "tabm"
+k = 16
+n_blocks = 3
+d_block = 768
+dropout = 0.21807191871097673
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 12
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 39
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0015441015789286396
+weight_decay = 0.010249489624489232

@@ -1,0 +1,26 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/otto"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 3
+d_block = 880
+dropout = 0.167200780129123
+
+[base_config.optimizer]
+type = "AdamWScheduleFree"
+lr = 0.01173790910657465
+weight_decay = 1.228694229655467

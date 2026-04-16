@@ -1,0 +1,77 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "share_training_batches": false,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/cooking-time",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "arch_type": "tabm",
+                    "k": 16,
+                    "n_blocks": 3,
+                    "d_block": 96,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "lr": 0.002037155419200776,
+                "weight_decay": 0.023688871860228885,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "type": "Muon",
+                "muon": {
+                    "lr": 0.015266675546785029
+                }
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 55120,
+            "prediction_type": "labels",
+            "epoch_size": 222,
+            "best_step": 17982,
+            "metrics": {
+                "train": {
+                    "rmse": 0.4444807047340894,
+                    "mae": 0.3463156521320343,
+                    "r2": 0.5461978912353516,
+                    "score": -0.4444807047340894
+                },
+                "val": {
+                    "rmse": 0.46287784478294347,
+                    "mae": 0.35980361700057983,
+                    "r2": 0.5086414813995361,
+                    "score": -0.46287784478294347
+                },
+                "test": {
+                    "rmse": 0.48042193238955927,
+                    "mae": 0.3746829330921173,
+                    "r2": 0.48540425300598145,
+                    "score": -0.48042193238955927
+                }
+            },
+            "time": 150.01246298197657,
+            "eval_batch_size": 32768,
+            "trial_id": 41,
+            "tuning_time": 3431.640975774266
+        }
+    },
+    "time": 4056.1357175875455,
+    "n_completed_trials": 50
+}

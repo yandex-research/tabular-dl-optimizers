@@ -1,0 +1,38 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/ecom-offers"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 4
+d_block = 144
+dropout = 0.0
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 12
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 109
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9160703860337819
+lr = 6.042910983681034e-05
+weight_decay = 0.2342375149742266

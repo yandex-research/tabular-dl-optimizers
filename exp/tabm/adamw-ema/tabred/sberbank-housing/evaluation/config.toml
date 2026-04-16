@@ -1,0 +1,33 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+share_training_batches = false
+
+[base_config.data]
+path = "data/sberbank-housing"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+k = 16
+arch_type = "tabm"
+n_blocks = 5
+d_block = 80
+dropout = 0.14240829025928786
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9305769591339732
+lr = 0.0014128855856664385
+weight_decay = 0.11712116746055767

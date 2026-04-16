@@ -1,0 +1,38 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/homecredit-default"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 5
+d_block = 192
+dropout = 0.0
+
+[base_config.optimizer]
+type = "Muon"
+ema_decay = 0.9508609856331113
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+lr = 0.0002617287071820013
+weight_decay = 0.6576935381961684
+
+[base_config.optimizer.muon]
+lr = 0.0001941208155120479

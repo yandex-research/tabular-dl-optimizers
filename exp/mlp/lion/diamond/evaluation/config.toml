@@ -1,0 +1,28 @@
+function = "bin.ffn.main"
+n_seeds = 10
+n_workers = 2
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/diamond"
+num_policy = "noisy-quantile"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 5
+d_block = 544
+dropout = 0.20574174758106784
+
+[base_config.optimizer]
+type = "Lion"
+lr = 2.3916939337474784e-05
+weight_decay = 3.9772207699983695

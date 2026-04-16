@@ -1,0 +1,28 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/cooking-time"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 144
+dropout = 0.42354538221556515
+
+[base_config.optimizer]
+type = "SOAP"
+lr = 5.691607844679762e-05
+weight_decay = 0.19650158838128953

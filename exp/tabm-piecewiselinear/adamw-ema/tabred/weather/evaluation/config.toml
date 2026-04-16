@@ -1,0 +1,41 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+share_training_batches = false
+
+[base_config.data]
+path = "data/weather"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+k = 16
+arch_type = "tabm"
+n_blocks = 4
+d_block = 768
+dropout = 0.0
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 8
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 97
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9563636674401726
+lr = 0.003793995555198993
+weight_decay = 0.0026876971655129932

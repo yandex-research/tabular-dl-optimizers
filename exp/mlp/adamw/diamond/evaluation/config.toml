@@ -1,0 +1,27 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/diamond"
+num_policy = "noisy-quantile"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 5
+d_block = 784
+dropout = 0.288957687344808
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0001149205168746616
+weight_decay = 2.1016938567288475

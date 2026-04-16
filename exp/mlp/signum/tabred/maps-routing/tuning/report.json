@@ -1,0 +1,64 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "data": {
+                "path": "data/maps-routing",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 496,
+                    "dropout": 0.49349881323445177
+                }
+            },
+            "optimizer": {
+                "type": "Signum",
+                "lr": 3.850763397011797e-05,
+                "weight_decay": 4.911335892258066
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-40GB",
+            "n_parameters": 496993,
+            "prediction_type": "labels",
+            "epoch_size": 157,
+            "best_step": 7536,
+            "metrics": {
+                "train": {
+                    "rmse": 0.1527831697204885,
+                    "mae": 0.11611838638782501,
+                    "r2": 0.8358416557312012,
+                    "score": -0.1527831697204885
+                },
+                "val": {
+                    "rmse": 0.16219516001052417,
+                    "mae": 0.12216001749038696,
+                    "r2": 0.8139340281486511,
+                    "score": -0.16219516001052417
+                },
+                "test": {
+                    "rmse": 0.16212064634917236,
+                    "mae": 0.12228845804929733,
+                    "r2": 0.8117371201515198,
+                    "score": -0.16212064634917236
+                }
+            },
+            "time": 16.420627631247044,
+            "eval_batch_size": 32768,
+            "trial_id": 79,
+            "tuning_time": 926.8018086329103
+        }
+    },
+    "time": 1169.2103650253266,
+    "n_completed_trials": 100
+}

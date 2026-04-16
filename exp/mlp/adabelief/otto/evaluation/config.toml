@@ -1,0 +1,26 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/otto"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 2
+d_block = 944
+dropout = 0.4972190190277913
+
+[base_config.optimizer]
+type = "AdaBelief"
+lr = 0.0001859944944155056
+weight_decay = 0.009108208462457515

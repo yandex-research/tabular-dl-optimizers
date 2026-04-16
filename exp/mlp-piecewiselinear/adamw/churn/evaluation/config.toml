@@ -1,0 +1,37 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/churn"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 2
+d_block = 432
+dropout = 0.0
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 24
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 28
+
+[base_config.optimizer]
+type = "AdamW"
+lr = 0.0007858256658708994
+weight_decay = 1.8170097250983426

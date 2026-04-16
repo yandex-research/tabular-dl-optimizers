@@ -1,0 +1,28 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/diamond"
+num_policy = "noisy-quantile"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 3
+d_block = 608
+dropout = 0.31752398754294436
+
+[base_config.optimizer]
+type = "AdaBelief"
+lr = 0.000490048852815328
+weight_decay = 0.3349756761022233

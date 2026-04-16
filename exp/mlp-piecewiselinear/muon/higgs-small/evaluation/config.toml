@@ -1,0 +1,43 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/higgs-small"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 2
+d_block = 480
+dropout = 0.16724191542211256
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 32
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 21
+
+[base_config.optimizer]
+type = "Muon"
+lr = 0.00011335325273731851
+weight_decay = 0.04025476647222438
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+
+[base_config.optimizer.muon]
+lr = 0.004030574174360144

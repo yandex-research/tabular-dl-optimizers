@@ -1,0 +1,33 @@
+\begin{table*}[h]
+\centering
+\caption{
+Transfer of optimizer gains across MLP-based architectures. $\Delta_{\mathrm{score}}$
+denotes the mean relative score improvement with respect to the MLP[AdamW]
+baseline. The AdamW column thus shows the gain from the architecture alone. For
+AdamW EMA and Muon we report the combined architecture+optimizer gain, and in
+parentheses the additional gain over AdamW within the same architecture. W/T/L
+compares each method to AdamW \textit{within the same model}. The last row
+contains summary, which is mean for the $\Delta_{\mathrm{score}}$ columns and sum for
+the W/T/L columns. Muon is the most consistent in terms of reliability of
+improvement across architecture variants. EMA gains are less uniform across
+architectures and datasets.}
+\label{tab:optimizer-transfer}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lccc@{\hspace{16pt}}cc@{}}
+\toprule
+& \multicolumn{3}{c}{$\Delta_{\mathrm{score}}$ over MLP[AdamW]} & \multicolumn{2}{c}{W/T/L vs \textit{Architecture}[AdamW]} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-6}
+Model & AdamW & AdamW {\scriptsize EMA} & Muon & AdamW {\scriptsize EMA} & Muon \\
+\midrule
+MLP & 0.00 & 0.66 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.66}})} & 0.32 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.32}})} & 12/4/1 & 12/3/2 \\
+MLP$^\dagger$ & 1.12 & 1.42 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.30}})} & 1.56 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.44}})} & 8/6/3 & 10/7/0 \\
+TabM$_{\text{Packed}}$ & 1.24 & 1.31 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.08}})} & 1.45 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.21}})} & 5/8/4 & 12/3/2 \\
+TabM & 1.50 & 1.75 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.26}})} & 1.71 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.21}})} & 8/7/2 & 11/5/1 \\
+TabM$^\dagger$ & 2.17 & 2.21 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.04}})} & 2.57 {\scriptsize (\textcolor{OliveGreen}{+\textbf{0.40}})} & 2/10/5 & 10/7/0 \\
+\midrule
+\textbf{Summary:} & \textbf{1.20} & \textbf{1.47} {\scriptsize (\textbf{\textcolor{OliveGreen}{+\textbf{0.27}}})} & \textbf{1.52} {\scriptsize (\textbf{\textcolor{OliveGreen}{+\textbf{0.32}}})} & \textbf{35/35/15} & \textbf{55/25/5} \\
+\bottomrule
+\end{tabular}
+\end{table*}

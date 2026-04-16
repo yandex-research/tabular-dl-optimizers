@@ -1,0 +1,73 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 256,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "share_training_batches": false,
+            "data": {
+                "path": "data/sberbank-housing",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "k": 16,
+                    "arch_type": "tabm-packed",
+                    "n_blocks": 3,
+                    "d_block": 688,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "ema_decay": 0.9834778360749751,
+                "lr": 0.0007934410562707478,
+                "weight_decay": 0.05450096584611277
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 21355536,
+            "prediction_type": "labels",
+            "epoch_size": 74,
+            "best_step": 296,
+            "metrics": {
+                "train": {
+                    "rmse": 0.24752829251510955,
+                    "mae": 0.12744809687137604,
+                    "r2": 0.6085615158081055,
+                    "score": -0.24752829251510955
+                },
+                "val": {
+                    "rmse": 0.24343377594064206,
+                    "mae": 0.13317975401878357,
+                    "r2": 0.6041661500930786,
+                    "score": -0.24343377594064206
+                },
+                "test": {
+                    "rmse": 0.244316160040428,
+                    "mae": 0.14727945625782013,
+                    "r2": 0.5921091437339783,
+                    "score": -0.244316160040428
+                }
+            },
+            "time": 9.141106376191601,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 98,
+                "time": 1092.9192797900178
+            }
+        }
+    },
+    "time": 1104.1514735850506,
+    "n_completed_trials": 100
+}

@@ -1,0 +1,38 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 512
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+
+[base_config.data]
+path = "data/black-friday"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 4
+d_block = 368
+dropout = 0.0
+
+[base_config.optimizer]
+type = "Muon"
+ema_decay = 0.9974729363668693
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+lr = 5.3658772741329285e-05
+weight_decay = 0.4506914869842903
+
+[base_config.optimizer.muon]
+lr = 0.0007258280444090933

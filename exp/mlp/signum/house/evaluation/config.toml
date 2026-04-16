@@ -1,0 +1,26 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/house"
+num_policy = "noisy-quantile"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 5
+d_block = 528
+dropout = 0.2959384760095801
+
+[base_config.optimizer]
+type = "Signum"
+lr = 0.0001005384014970859
+weight_decay = 2.8145314081498682

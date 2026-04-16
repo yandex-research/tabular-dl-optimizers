@@ -1,0 +1,72 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "share_training_batches": false,
+            "data": {
+                "path": "data/weather",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "k": 16,
+                    "arch_type": "tabm-packed",
+                    "n_blocks": 4,
+                    "d_block": 144,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "ema_decay": 0.9865676236698016,
+                "lr": 0.001693038170747047,
+                "weight_decay": 0.17958548612763847
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 1251088,
+            "prediction_type": "labels",
+            "epoch_size": 333,
+            "best_step": 54945,
+            "metrics": {
+                "train": {
+                    "rmse": 1.2316148052902862,
+                    "mae": 0.9206992387771606,
+                    "r2": 0.899518609046936,
+                    "score": -1.2316148052902862
+                },
+                "val": {
+                    "rmse": 1.562903771682436,
+                    "mae": 1.1447142362594604,
+                    "r2": 0.8461915254592896,
+                    "score": -1.562903771682436
+                },
+                "test": {
+                    "rmse": 1.4834278498051034,
+                    "mae": 1.0836138725280762,
+                    "r2": 0.851672887802124,
+                    "score": -1.4834278498051034
+                }
+            },
+            "time": 251.4607610492967,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 83,
+                "time": 12265.95850885287
+            }
+        }
+    },
+    "time": 14362.468415256124,
+    "n_completed_trials": 100
+}

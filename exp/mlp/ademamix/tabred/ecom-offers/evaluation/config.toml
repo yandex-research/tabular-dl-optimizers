@@ -1,0 +1,29 @@
+function = "bin.ffn.main"
+n_seeds = 10
+n_workers = 2
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/ecom-offers"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 688
+dropout = 0.23842127929443108
+
+[base_config.optimizer]
+type = "AdEMAMix"
+lr = 0.0008017683209088817
+alpha = 1.5029683636343556
+weight_decay = 0.012806443492313227

@@ -1,0 +1,32 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+save_checkpoint = false
+share_training_batches = false
+
+[base_config.data]
+path = "data/delivery-eta"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "tabm"
+
+[base_config.model.backbone]
+k = 16
+arch_type = "tabm-packed"
+n_blocks = 2
+d_block = 64
+dropout = 0.0
+
+[base_config.optimizer]
+type = "AdamW"
+ema_decay = 0.9303449086101667
+lr = 0.0022807761790105434
+weight_decay = 0.2929308080882013

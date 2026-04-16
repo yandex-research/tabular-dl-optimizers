@@ -1,0 +1,104 @@
+\begin{table*}[h]
+\centering
+\caption{Optimizer hyperparameter tuning spaces for the MLP benchmark.
+Spaces are added to the model space (\autoref{A:tab:mlp-space})
+and tuned jointly (100 iterations).}
+\label{A:tab:optimizer-spaces}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Distribution / Value \\
+\midrule
+\multicolumn{2}{l}{\textbf{AdamW}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{AdamW\ EMA}} \\
+\quad EMA decay & $\mathrm{LogUniform}[0.9,\,0.999]$ \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{NAdamW}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{RAdam}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{AdaBelief}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{ADOPT}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Adan}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[0.0001,\,0.01]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{AdEMAMix}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad $\alpha$ & $\mathrm{Uniform}[1,\,8]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Lion}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Distribution / Value \\
+\midrule
+\multicolumn{2}{l}{\textbf{Signum}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Cautious AdamW}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{SOAP}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{ScheduleFree}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[0.0001,\,0.03]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{SGD}} \\
+\quad Momentum & $0.9$ \\
+\quad Dampening & $0.9$ \\
+\quad Learning Rate & $\mathrm{LogUniform}[0.001,\,0.1]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Muon}} \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\quad $(\beta_1, \beta_2)$ & $(0.9,\,0.999)$ \\
+\quad $\epsilon$ & $10^{-8}$ \\
+\quad Muon LR & $\mathrm{LogUniform}[0.0001,\,0.03]$ \\
+\midrule
+\multicolumn{2}{l}{\textbf{Muon EMA}} \\
+\quad EMA decay & $\mathrm{LogUniform}[0.9,\,0.999]$ \\
+\quad $(\beta_1, \beta_2)$ & $(0.9,\,0.999)$ \\
+\quad $\epsilon$ & $10^{-8}$ \\
+\quad Learning Rate & $\mathrm{LogUniform}[3 \!\times\! 10^{-5},\,0.001]$ \\
+\quad Weight Decay & $\mathrm{LogUniform}[0.005,\,5]$ \\
+\quad Muon LR & $\mathrm{LogUniform}[0.0001,\,0.03]$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+
+\end{table*}

@@ -1,0 +1,72 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 512,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "save_checkpoint": false,
+            "share_training_batches": false,
+            "data": {
+                "path": "data/diamond",
+                "num_policy": "noisy-quantile",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "k": 16,
+                    "arch_type": "tabm",
+                    "n_blocks": 3,
+                    "d_block": 160,
+                    "dropout": 0.0729199918593292
+                }
+            },
+            "optimizer": {
+                "type": "AdamW",
+                "ema_decay": 0.9540588556864668,
+                "lr": 0.0011926663704447346,
+                "weight_decay": 0.027748243281929777
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 78832,
+            "prediction_type": "labels",
+            "epoch_size": 68,
+            "best_step": 22236,
+            "metrics": {
+                "train": {
+                    "rmse": 0.11915580465202033,
+                    "mae": 0.06499908864498138,
+                    "r2": 0.9857348799705505,
+                    "score": -0.11915580465202033
+                },
+                "val": {
+                    "rmse": 0.1280473211954476,
+                    "mae": 0.06865213811397552,
+                    "r2": 0.9839838743209839,
+                    "score": -0.1280473211954476
+                },
+                "test": {
+                    "rmse": 0.13064398761031076,
+                    "mae": 0.0683598667383194,
+                    "r2": 0.9828636050224304,
+                    "score": -0.13064398761031076
+                }
+            },
+            "time": 93.66104107443243,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 85,
+                "time": 6890.717027602717
+            }
+        }
+    },
+    "time": 7828.649713709019,
+    "n_completed_trials": 100
+}

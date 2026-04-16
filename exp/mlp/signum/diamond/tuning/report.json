@@ -1,0 +1,65 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 512,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "data": {
+                "path": "data/diamond",
+                "num_policy": "noisy-quantile",
+                "cat_policy": "ordinal",
+                "cache": true
+            },
+            "model": {
+                "type": "mlp",
+                "backbone": {
+                    "n_blocks": 3,
+                    "d_block": 512,
+                    "dropout": 0.45078441871861336
+                }
+            },
+            "optimizer": {
+                "type": "Signum",
+                "lr": 2.8486240627029564e-05,
+                "weight_decay": 2.5379953489524487
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-40GB",
+            "n_parameters": 539649,
+            "prediction_type": "labels",
+            "epoch_size": 68,
+            "best_step": 21080,
+            "metrics": {
+                "train": {
+                    "rmse": 0.11950320432169591,
+                    "mae": 0.06466856598854065,
+                    "r2": 0.9856515526771545,
+                    "score": -0.11950320432169591
+                },
+                "val": {
+                    "rmse": 0.1346234317797117,
+                    "mae": 0.07139889895915985,
+                    "r2": 0.9822965264320374,
+                    "score": -0.1346234317797117
+                },
+                "test": {
+                    "rmse": 0.1374865024075601,
+                    "mae": 0.07090388983488083,
+                    "r2": 0.9810215830802917,
+                    "score": -0.1374865024075601
+                }
+            },
+            "time": 57.46536093391478,
+            "eval_batch_size": 32768,
+            "trial_id": 37,
+            "tuning_time": 706.3630032474175
+        }
+    },
+    "time": 2007.4565879991278,
+    "n_completed_trials": 100
+}

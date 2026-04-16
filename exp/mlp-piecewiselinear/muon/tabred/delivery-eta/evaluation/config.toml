@@ -1,0 +1,44 @@
+function = "bin.ffn.main"
+n_seeds = 10
+
+[base_config]
+batch_size = 1024
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/delivery-eta"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 2
+d_block = 976
+dropout = 0.16200486834814973
+
+[base_config.model.num_embeddings]
+type = "PiecewiseLinearEmbeddings"
+d_embedding = 24
+activation = false
+version = "B"
+
+[base_config.model_num_embeddings_bins]
+n_bins = 128
+
+[base_config.optimizer]
+type = "Muon"
+lr = 0.0004332357593030501
+weight_decay = 1.0712379306507638
+betas = [
+    0.9,
+    0.999,
+]
+eps = 1e-08
+
+[base_config.optimizer.muon]
+lr = 0.00024290163791344967

@@ -1,0 +1,30 @@
+function = "bin.ffn.main"
+n_seeds = 10
+n_workers = 2
+
+[base_config]
+batch_size = 256
+n_epochs = -1
+patience = 16
+gradient_clipping_norm = 1.0
+
+[base_config.data]
+path = "data/churn"
+num_policy = "noisy-quantile"
+bin_policy = "convert-to-cat"
+cat_policy = "ordinal"
+cache = true
+
+[base_config.model]
+type = "mlp"
+
+[base_config.model.backbone]
+n_blocks = 1
+d_block = 960
+dropout = 0.020134994728021216
+
+[base_config.optimizer]
+type = "AdEMAMix"
+lr = 0.0009924533053127197
+alpha = 6.72348313727325
+weight_decay = 1.89377632101481

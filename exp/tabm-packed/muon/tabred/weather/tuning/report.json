@@ -1,0 +1,77 @@
+{
+    "function": "bin.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "batch_size": 1024,
+            "n_epochs": -1,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "share_training_batches": false,
+            "save_checkpoint": false,
+            "data": {
+                "path": "data/weather",
+                "num_policy": "noisy-quantile",
+                "bin_policy": "convert-to-cat",
+                "cache": true
+            },
+            "model": {
+                "type": "tabm",
+                "backbone": {
+                    "arch_type": "tabm-packed",
+                    "k": 16,
+                    "n_blocks": 3,
+                    "d_block": 256,
+                    "dropout": 0.0010721065760399915
+                }
+            },
+            "optimizer": {
+                "lr": 0.004897989244579163,
+                "weight_decay": 0.05107979023186155,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "type": "Muon",
+                "muon": {
+                    "lr": 0.008270700835239824
+                }
+            }
+        },
+        "report": {
+            "function": "bin.ffn.main",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "n_parameters": 2547728,
+            "prediction_type": "labels",
+            "epoch_size": 333,
+            "best_step": 13986,
+            "metrics": {
+                "train": {
+                    "rmse": 1.0742150878843828,
+                    "mae": 0.8081545829772949,
+                    "r2": 0.923560380935669,
+                    "score": -1.0742150878843828
+                },
+                "val": {
+                    "rmse": 1.5524218742628233,
+                    "mae": 1.1321440935134888,
+                    "r2": 0.8482477068901062,
+                    "score": -1.5524218742628233
+                },
+                "test": {
+                    "rmse": 1.480001572144163,
+                    "mae": 1.0787423849105835,
+                    "r2": 0.8523572683334351,
+                    "score": -1.480001572144163
+                }
+            },
+            "time": 118.60963611118495,
+            "eval_batch_size": 32768,
+            "trial_id": 21,
+            "tuning_time": 3451.1503062490374
+        }
+    },
+    "time": 7683.493311911821,
+    "n_completed_trials": 50
+}
